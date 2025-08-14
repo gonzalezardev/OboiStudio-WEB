@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oboi Studio - Home Studio para llevar tu canción a otro nivel.">
+    <title>Oboi Studio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/youtube.js"></script>
+</head>
+<body>
+<!-- Navegación principal -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Oboi Studio</a>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <!-- Elimino el enlace a "Sobre mí" ya que la sección la elimine -->
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>Bienvenido a Oboi Studio</h1>
+                <p>Home Studio in the box preparado para llevar tu canción a otro nivel</p>
+                <a href="#servicios" class="btn">Conoce mis servicios</a>
+            </div>
+        </section>
+
+        <!-- Sección "Sobre mí" eliminada -->
+        <!-- <section id="sobre-mi" class="section">
+            <div class="container">
+                <h2>Sobre mí</h2>
+                <p>Aquí puedes incluir información sobre ti y tu experiencia en la industria musical.</p>
+            </div>
+        </section> -->
+
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2>Servicios</h2>
+                <div class="servicios-grid">
+                    <div class="caja-servicio">
+                        <h3>MEZCLA Y MASTERING</h3>
+                    </div>
+                    <div class="caja-servicio">
+                        <h3>GRABACIÓN DE TECLADOS Y SINTETIZADORES</h3>
+                    </div>
+                    <div class="caja-servicio">
+                        <h3>EDICIÓN DE AUDIO/MIDI Y PRODUCCIÓN MUSICAL</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--Enlaces de inserción de Youtube -->
+        <section id="novedades" class="section">
+            <div class="container">
+                <h2>Novedades</h2>
+                <div class="video-grid">
+                    <iframe src="https://www.youtube.com/embed/n_8DmENPGLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/kIabmrkRQm4?list=RDkIabmrkRQm4" title="Que no se puede elegir" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="853" height="480" src="https://www.youtube.com/embed/A289zxeipkw?list=RDA289zxeipkw" title="Vuelvo a Caer (Live session) - Tres Round" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="853" height="480" src="https://www.youtube.com/embed/60bsTthuXcA" title="&quot;AMOR DE PAPEL&quot; - JAHRUSHALEM - LIVE  SESSION EN 100% PURO REGGAE RADIO/TV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/J0E_U7H2SbM?list=RDJ0E_U7H2SbM" title="Nacho Binco - Disfrutar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="853" height="480" src="https://www.youtube.com/embed/X6-inXUTauo?list=RDX6-inXUTauo" title="Gracias y Desgracias" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+        <div class="container" style="display:flex; justify-content:center;"> <!--Centre formulario de contacto-->
+            <form action="#" method="POST" class="contact-form">
+                <h2>Contacto</h2>
+                <label for="nombre">Nombre y Apellido:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="pregunta">¿Qué pregunta quieres hacer?</label>
+                <textarea id="pregunta" name="pregunta" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div style="text-align: center; margin-top: 20px;"> <!--Centre el contenido-->
+            <p>Puedes contactarme a través de Instagram: 
+                <a href="https://www.instagram.com/oboistudiook" target="_blank">@oboistudiook</a>
+            </p>
+        </div>
+
+        <!--Botón de Whatsapp-->
+        <a href="https://wa.me/5491123456789" class="whatsapp-float" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+        </a>
+        </section>
+        
+    </main>
+
+    <footer class="footer" style="margin-top: 10px; padding: 5px 0;">
+    <div class="container" style="text-align: center; margin-top: 20px;"><!--Centre el contenido del footer-->
+        <p>&copy; 2025 Oboi Studio. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    
+</body>
+</html>
