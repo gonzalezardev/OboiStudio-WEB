@@ -10,7 +10,7 @@ Este es el proyecto de mi estudio **Oboi Studio**, un home-studio especializado 
 - HTML5, CSS3 y JavaScript
 - Firebase (Firestore para el blog)
 - EmailJS (formulario de contacto)
-- YouTube embed (novedades)
+- YouTube (novedades)
 
 ## 📸 Preview
 ![screenshot](img/preview.png)
@@ -19,5 +19,5 @@ Este es el proyecto de mi estudio **Oboi Studio**, un home-studio especializado 
 👉 [Ver Landing Page en GitHub Pages](https://gonzalezardev.github.io/OboiStudio-WEB/)
 
 ## 👨‍💻 Autor
-**Alejandro González**  
+**Alejandro GonzAlez**  
 [Instagram](https://instagram.com/oboistudiook) · [LinkedIn](https://linkedin.com/in/...)
