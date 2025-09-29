@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oboi Studio | Admin</title>
+
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; background: #f6f7f9; margin: 0; }
+    .wrap { max-width: 860px; margin: 40px auto; padding: 0 16px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 6px 12px rgba(0,0,0,.06); }
+    h1,h2 { margin: 0 0 14px; }
+    .row { display: grid; gap: 10px; }
+    input, textarea, button {
+      font: inherit; padding: 10px 12px; border-radius: 8px; border: 1px solid #ccc;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    button { background: #3498db; color: #fff; border: none; cursor: pointer; }
+    button:hover { background: #2980b9; }
+    .meta { color: #667085; font-size: .9rem; }
+    .ok { color: #0a7f2e; margin-top: 8px; }
+    .err { color: #b42318; margin-top: 8px; white-space: pre-wrap; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- 🔐 Login -->
+    <div id="login-card" class="card">
+      <h1>Panel Admin - Oboi Studio</h1>
+      <p class="meta">Iniciá sesión con tu usuario de Firebase (Email/Password).</p>
+      <form id="login-form" class="row">
+        <input type="email" name="email" placeholder="tu@email.com" required />
+        <input type="password" name="password" placeholder="********" required />
+        <button type="submit">Ingresar</button>
+        <div id="login-err" class="err"></div>
+      </form>
+    </div>
+
+    <!-- 📝 Formulario de publicación -->
+    <div id="form-card" class="card hidden">
+      <h2>Nueva publicación</h2>
+      <form id="post-form" class="row">
+        <input type="text" name="title" placeholder="Título del post" required />
+        <textarea name="content" placeholder="Contenido..." required></textarea>
+        <input type="url" name="image" placeholder="URL de imagen destacada (opcional)" />
+        <label><input type="checkbox" name="published" checked /> Publicado</label>
+        <button type="submit">Guardar</button>
+        <div id="post-ok" class="ok"></div>
+        <div id="post-err" class="err"></div>
+      </form>
+      <button id="btn-logout" style="margin-top:10px;">Cerrar sesión</button>
+    </div>
+
+  </div>
+
+  <!-- 🚀 Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+
+    // 🔧 Config de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOlNu7B3NI-XmNC5Fp1AkRew8GSeySXNA",
+      authDomain: "oboi-studio-2ad7c.firebaseapp.com",
+      projectId: "oboi-studio-2ad7c",
+      storageBucket: "oboi-studio-2ad7c.appspot.com",
+      messagingSenderId: "410155691404",
+      appId: "1:410155691404:web:dc6ab005e49387e8a37aa9",
+      measurementId: "G-W96LYML67H"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginCard = document.getElementById('login-card');
+    const formCard = document.getElementById('form-card');
+
+    // 👀 Estado de sesión
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        loginCard.classList.add('hidden');
+        formCard.classList.remove('hidden');
+      } else {
+        formCard.classList.add('hidden');
+        loginCard.classList.remove('hidden');
+      }
+    });
+
+    // 🔐 Login
+    document.getElementById('login-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = e.target.email.value.trim();
+      const pass  = e.target.password.value.trim();
+      document.getElementById('login-err').textContent = '';
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+      } catch (err) {
+        document.getElementById('login-err').textContent = `Error: ${err.message}`;
+      }
+    });
+
+    // 🚪 Logout
+    document.getElementById('btn-logout')?.addEventListener('click', async () => {
+      await signOut(auth);
+    });
+
+    // 📝 Publicar
+    document.getElementById('post-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const title   = e.target.title.value.trim();
+      const content = e.target.content.value.trim();
+      const image   = e.target.image.value.trim();
+      const published = e.target.published.checked;
+
+      try {
+        await addDoc(collection(db, 'posts'), {
+          title,
+          content,
+          image: image || null,
+          published,
+          createdAt: serverTimestamp()
+        });
+        e.target.reset();
+        document.getElementById('post-ok').textContent = '✅ Publicado correctamente';
+      } catch (err) {
+        document.getElementById('post-err').textContent = `❌ Error: ${err.message}`;
+      }
+    });
+  </script>
+</body>
+</html>

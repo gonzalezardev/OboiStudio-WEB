@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oboi Studio - Home Studio para llevar tu canción a otro nivel." />
+  <title>Oboi Studio</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Script personalizado de YouTube -->
+  <script src="/js/youtube.js"></script>
+
+  <!-- SDK oficial de EmailJS v4 -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Inicialización EmailJS -->
+  <script>
+    (function(){
+      emailjs.init({
+        publicKey: "Fef1NO8DOfZa-_rXB"  <!-- ⚠️ este es tu Public Key -->
+      });
+    })();
+  </script>
+
+  <!-- Script contacto -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact-form");
+      const formMessage = document.getElementById("form-message");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm(
+          "service_y7o3nmd",   // ⚠️ tu Service ID
+          "template_kba0n1w",  // ⚠️ tu Template ID
+          this
+        ).then(() => {
+          formMessage.textContent = "✅ Mensaje enviado con éxito!";
+          formMessage.className = "form-message success";
+        }, (error) => {
+          formMessage.textContent = "❌ Error al enviar el mensaje. Inténtalo de nuevo.";
+          formMessage.className = "form-message error";
+          console.error("Error:", error);
+        });
+      });
+    });
+  </script>
+
+  <!-- Inicialización Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOlNu7B3NI-XmNC5Fp1AkRew8GSeySXNA",
+      authDomain: "oboi-studio-2ad7c.firebaseapp.com",
+      projectId: "oboi-studio-2ad7c",
+      storageBucket: "oboi-studio-2ad7c.appspot.com",
+      messagingSenderId: "410155691404",
+      appId: "1:410155691404:web:dc6ab005e49387e8a37aa9",
+      measurementId: "G-W96LYML67H"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+  <!-- Script personalizado de blog (Firestore) -->
+  <script type="module" src="/js/blog.js"></script>
+</head>
+
+<body>
+
+  <!-- 🔝 Navegación -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">Oboi Studio</a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#novedades">Novedades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="/admin.html" class="admin-link">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 🏠 Inicio con Blog integrado -->
+    <section id="inicio" class="hero">
+      <div class="container hero-content">
+        <h1>Bienvenido a Oboi Studio</h1>
+        <p>Home Studio in the box preparado para llevar tu canción a otro nivel</p>
+        <a href="#servicios" class="btn">Conoce mis servicios</a>
+      </div>
+
+      <!-- 📰 Blog flotante dentro del Hero -->
+      <div id="blog-hero" class="blog-hero">
+        <div id="publicaciones" class="blog-container">
+          <!-- Aquí carga blog.js desde Firestore -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎵 Servicios con cajas -->
+    <section id="servicios" class="section">
+      <div class="container">
+        <h2>Servicios</h2>
+        <div class="servicios-grid">
+          <div class="caja-servicio">
+            <h3>MEZCLA Y MASTERING</h3>
+            <p>Traes tu multitrack y lo llevamos al siguiente nivel. Incluye dos correcciones de mezcla y una de mastering.</p>
+          </div>
+          <div class="caja-servicio">
+            <h3>GRABACIÓN DE TECLADOS Y SINTETIZADORES</h3>
+            <p>Agregá texturas únicas con teclados grabados en estudio.</p>
+          </div>
+          <div class="caja-servicio">
+            <h3>EDICIÓN DE AUDIO/MIDI Y PRODUCCIÓN MUSICAL</h3>
+            <p>Cuantizaciones de audio y MIDI. Afinación de voces y producción musical completa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 👤 Sobre mí -->
+    <section id="sobre-mi" class="section sobre-mi">
+      <div class="container">
+        <div class="sobre-mi-content">
+          <div class="sobre-mi-texto">
+            <h2>Te ayudo a terminar tus canciones</h2>
+            <p>
+              Soy <strong>Alejandro Gonzalez</strong>, músico con más de 10 años de experiencia. 
+              Mi trabajo es convertir tus ideas en canciones profesionales con el fin de emocionar y conquistar tu público.
+            </p>
+            <p>
+              En <em>Oboi Studio</em> me especializo en <strong>grabación, producción, mezcla y mastering</strong>, cuidando cada detalle 
+              para que tu música tenga la calidad que merece y compita al nivel de los grandes artistas.
+            </p>
+            <p>
+              Trabajemos juntos para darle el sonido que siempre soñaste.
+            </p>
+            <a href="#contacto" class="btn">Comenzá hoy</a>
+          </div>
+          <div class="sobre-mi-imagen">
+            <img src="/img/file_00000000628461f5a731c6f8e34bac90 (1).png" alt="Alejandro trabajando en el estudio" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📺 Novedades (videos) -->
+    <section id="novedades" class="section">
+      <div class="container">
+        <h2>Novedades</h2>
+        <div class="video-grid">
+          <iframe src="https://www.youtube.com/embed/n_8DmENPGLo" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/kIabmrkRQm4?list=RDkIabmrkRQm4" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/A289zxeipkw?list=RDA289zxeipkw" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/60bsTthuXcA" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/J0E_U7H2SbM?list=RDJ0E_U7H2SbM" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/X6-inXUTauo?list=RDX6-inXUTauo" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+<!-- 📧 Contacto -->
+<section id="contacto" class="section">
+  <div class="container" style="display:flex; justify-content:center;">
+    <form id="contact-form" class="contact-form">
+      <h2>Contacto</h2>
+
+      <!-- Campo oculto para el Subject -->
+      <input type="hidden" name="title" value="Consulta desde la web" />
+
+      <!-- Nombre -->
+      <div class="field">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <!-- Correo -->
+      <div class="field">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <!-- Consulta -->
+      <div class="field">
+        <label for="message">Consulta:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+
+      <input type="submit" id="button" value="Enviar" />
+      <div id="form-message" class="form-message"></div>
+    </form>
+  </div>
+</section>
+
+<!-- SDK oficial de EmailJS v4 -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Tu script de contacto -->
+<script src="/js/contact.js"></script>
+
+          <!-- 📩 Cajita de mensajes -->
+          <div id="form-message" class="form-message"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 📱 Redes -->
+    <div style="text-align: center; margin-top: 20px;">
+      <p>Puedes contactarme en Instagram: 
+        <a href="https://www.instagram.com/oboistudiook" target="_blank">@oboistudiook</a>
+      </p>
+    </div>
+
+    <!-- 📞 WhatsApp -->
+    <a href="https://wa.me/5491124005531" class="whatsapp-float" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+  </main>
+
+  <!-- ⚓ Footer -->
+  <footer class="footer">
+    <div class="container" style="text-align: center; margin-top: 20px;">
+      <p>&copy; 2025 Oboi Studio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

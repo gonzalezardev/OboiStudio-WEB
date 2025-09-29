@@ -1,0 +1,532 @@
+/* 🎨 Variables */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #17191d;
+  --text-color: #333;
+  --bg-color: #f4f4f4;
+}
+
+/* 🌐 Base */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section {
+  padding: 20px 0;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* 🔝 Header */
+.header {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar .nav-list li {
+  margin-left: 15px;
+}
+
+.navbar .nav-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-list a:hover {
+  color: var(--primary-color);
+}
+
+/* 🏠 Hero */
+.hero {
+  min-height: 45vh;
+  padding: 250px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('/img/auriculares-con-teclado-midi-y-un-portatil-con-un-programa-para-crear-musica.jpg') no-repeat center; 
+  background-size: cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+/* 🎵 Servicios con cajas */
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.caja-servicio {
+  flex: 1;
+  min-width: 280px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caja-servicio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.caja-servicio h3 {
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.caja-servicio p {
+  font-size: 0.95em;
+  color: var(--text-color);
+}
+
+/* 🎥 Videos */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.video-grid iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* 📧 Contacto */
+.contact-form {
+  max-width: 450px; /* antes 400px → ahora más ancho */
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Campos individuales */
+.field input,
+.field textarea {
+  width: 100%;
+  max-width: 100%;  /* ocupa todo el ancho del formulario */
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+
+/* 📰 Blog solo publicaciones */
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.blog-post {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.blog-post img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.blog-post h3 {
+  margin: 10px 0;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+}
+
+.blog-post p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* 📞 WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* ⚓ Footer */
+.footer {
+  background: var(--secondary-color);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+}
+
+/* 📰 Contenedor del blog en el Hero */
+.blog-hero {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 300px;
+  max-width: 90%;
+  max-height: 400px;
+  overflow-y: auto; /* 👈 habilitamos scroll */
+  background: rgba(255, 255, 255, 0.15); 
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* Barra de scroll personalizada */
+.blog-hero::-webkit-scrollbar {
+  width: 6px;
+}
+.blog-hero::-webkit-scrollbar-track {
+  background: transparent;
+}
+.blog-hero::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+.blog-hero::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Título del bloque */
+.blog-hero h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #fff;
+  text-align: left;
+}
+
+/* Contenedor de posts */
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cada publicación */
+.blog-post {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.blog-post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.blog-post h3 {
+  font-size: 0.95rem;
+  margin: 0 0 6px;
+  color: #ffd700;
+}
+
+.blog-post p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #f1f1f1;
+}
+
+/* Fecha y hora de las publicaciones */
+.blog-post .meta {
+  color: #fff !important;   /* 👈 forzamos blanco puro */
+  font-size: 0.75rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.blog-post .meta::before {
+  content: "⏱";
+  font-size: 0.9rem;
+  color: #fff;              /* también el icono en blanco */
+}
+
+.blog-post img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* 📱 Responsividad */
+@media (max-width: 1024px) {
+  .blog-hero {
+    width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-hero {
+    position: static;
+    width: 90%;
+    margin: 20px auto 0 auto;
+    max-height: none;
+  }
+  .blog-post {
+    padding: 8px;
+  }
+  .blog-post h3 {
+    font-size: 0.9rem;
+  }
+  .blog-post p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-hero {
+    padding: 12px;
+  }
+  .blog-post h3 {
+    font-size: 0.85rem;
+  }
+  .blog-post p {
+    font-size: 0.7rem;
+  }
+  .blog-post .meta {
+    font-size: 0.65rem;
+  }
+}
+
+/* 👤 Sección Sobre mí */
+.sobre-mi-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.sobre-mi-texto {
+  flex: 1;
+  min-width: 280px;
+}
+
+.sobre-mi-texto h2 {
+  text-align: left;
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+}
+
+.sobre-mi-texto p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.sobre-mi-texto strong {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.sobre-mi-texto em {
+  color: #070707; /* resaltado para Oboi Studio */
+  font-style: normal;
+  font-weight: bold;
+}
+
+.sobre-mi-texto .btn {
+  margin-top: 15px;
+}
+
+.sobre-mi-imagen {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  justify-content: center; /* centramos la imagen */
+}
+
+.sobre-mi-imagen img {
+  max-width: 50%;   /* ✅ reducido al 40% en desktop */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.sobre-mi-imagen img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsividad */
+@media (max-width: 768px) {
+  .sobre-mi-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sobre-mi-texto h2 {
+    text-align: center;
+  }
+  .sobre-mi-imagen {
+    margin-top: 20px;
+  }
+  .sobre-mi-imagen img {
+    max-width: 90%; /* ✅ en móvil ocupa casi todo el ancho */
+  }
+}
+
+/* Centrado del bloque de texto */
+.sobre-mi-texto {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;   /* ✅ centramos el texto */
+  margin: 0 auto;       /* ✅ lo centramos como bloque */
+  max-width: 700px;     /* ✅ para que no quede muy ancho */
+}
+
+.sobre-mi-texto h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;   /* ✅ centramos el título */
+}
+
+.sobre-mi-texto p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;   /* ✅ centramos los párrafos */
+}
+
+.sobre-mi-texto .btn {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* 📩 Cajita de mensajes */
+.form-message {
+  margin-top: 15px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: none; /* solo aparece cuando hay mensaje */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+/* ✅ Éxito */
+.form-message.success {
+  display: block;
+  background-color: #d1f7d6;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ❌ Error */
+.form-message.error {
+  display: block;
+  background-color: #fde0e0;
+  color: #b71c1c;
+  border: 1px solid #ef9a9a;
+  opacity: 1;
+  transform: translateY(0);
+}
