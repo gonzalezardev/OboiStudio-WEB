@@ -3,7 +3,7 @@
 Bienvenido a mi proyecto **Oboi Studio**, un home-studio donde transformo ideas en canciones profesionales.
 
 ## ✨ ¿Qué incluye esta landing?
-- 🎚️ **Mezcla y Mastering** profesional
+- 🎚️ **Mezcla y Mastering** profesional 
 - 🎹 **Grabación de teclados y sintetizadores**
 - 🎛️ **Producción musical y edición de audio/MIDI**
 - 📰 **Blog dinámico** con Firebase Firestore
