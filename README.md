@@ -2,7 +2,7 @@
 
 Bienvenido a mi proyecto **Oboi Studio**, un home-studio donde transformo ideas en canciones profesionales.
 
-## ✨ ¿Qué incluye esta landing?
+## ✨ ¿Qué incluye?
 - 🎚️ **Mezcla y Mastering** profesional 
 - 🎹 **Grabación de teclados y sintetizadores**
 - 🎛️ **Producción musical y edición de audio/MIDI**
@@ -15,12 +15,6 @@ Bienvenido a mi proyecto **Oboi Studio**, un home-studio donde transformo ideas 
 - **Firebase (Firestore, Hosting, Analytics)**
 - **EmailJS (microservicio de contacto)**
 - **GitHub Pages** (deploy)
-
-## 🌐 Demo en vivo
-👉 [Ver Landing Page](https://gonzalezardev.github.io/OboiStudio-WEB/)
-
-## 📸 Captura
-![Preview de Oboi Studio](img/preview.png)
 
 ## 👨‍💻 Autor
 **Alejandro González**  
